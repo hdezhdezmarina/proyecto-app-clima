@@ -34,9 +34,12 @@ button.addEventListener('click', () => {
             //Aquí hacemos un map con las propiedades de la API que vamos a usar
             const datosHoraYLluvia = body.data.map((datos) => {
               return {
+                codigoPrecipitacion: datos.weather.code,
                 precipitacion: datos.weather.description,
                 horasLluvia: datos.timestamp_local,
                 temperatura: datos.temp,
+                // iconos: `https://cdn.weatherbit.io/static/img/icons/${datos.weather.icon}.png`,
+                //<img src="${datosHoraYLluvia[i].icono}" alt="">
               };
             });
 
@@ -50,28 +53,62 @@ button.addEventListener('click', () => {
                 minute: '2-digit',
               });
 
-              const lluvia = datosHoraYLluvia[i].precipitacion.includes(
-                'rain' || 'drizzle'
-              )
-                ? 'llueve'
-                : 'no llueve';
+              //Hacemos una constante con el código meteorológico de cada hora y lo utilizamos para
+              //crear un if else que nos diga que tiempo hace y una imagen que lo represente
+              const prevision = datosHoraYLluvia[i].codigoPrecipitacion;
+              let tiempo = '';
+              let icono = '';
+              if (prevision > 199 && prevision < 203) {
+                tiempo = 'Lluvia tormentosa';
+                icono = '/iconosMeteo/tormenta.svg';
+              } else if (prevision > 229 && prevision < 234) {
+                tiempo = 'Tormenta eléctrica';
+                icono = '/iconosMeteo/tormenta.svg';
+              } else if (
+                (prevision > 299 && prevision <= 500) ||
+                (prevision >= 520 && prevision <= 521)
+              ) {
+                tiempo = 'Lluvia ligera';
+                icono = '/iconosMeteo/lluvia-ligera.svg';
+              } else if (prevision === 511) {
+                tiempo = 'Granizo';
+                icono = '/iconosMeteo/granizo.svg';
+              } else if (
+                prevision === 501 ||
+                prevision === 502 ||
+                prevision === 522
+              ) {
+                tiempo = 'Lluvia intensa';
+                icono = '/iconosMeteo/lluvia-intensa.svg';
+              } else if (prevision > 599 && prevision < 624) {
+                tiempo = 'Nieve';
+                icono = '/iconosMeteo/nieve.svg';
+              } else if (prevision > 699 && prevision < 752) {
+                tiempo = 'Niebla';
+                icono = '/iconosMeteo/nublado.svg';
+              } else if (prevision === 800) {
+                tiempo = 'Solazo';
+                icono = '/iconosMeteo/solazo.svg';
+              } else if (prevision > 800 && prevision < 805) {
+                tiempo = 'Nublado';
+                icono = '/iconosMeteo/nublado.svg';
+              } else {
+                tiempo = 'Desconocido';
+                icono = '/iconosMeteo/weather.svg';
+              }
 
-              //Imprimimos la lista de horas en HTML
+              // Imprimimos la lista en HTML
               const meteo = document.createElement('li');
 
-              if (lluvia) {
-                meteo.innerHTML = `
-                  <p>A las ${hora} llueve.</p>
-                  <img src="./animated/rainy-6.svg" alt="">
-                  <p></p>
+              meteo.innerHTML = `
+                  <p>${hora} ${tiempo}.</p>
+                  <img src="${icono}" alt="${tiempo}">
+                
+                  <p>${datosHoraYLluvia[i].temperatura}º</p>
                 `;
-              } else {
-                meteo.innerHTML = `
-                <p>A las ${hora} no llueve.</p>
-                <img src="./animated/cloudy-day-3.svg" alt="">
-                <p></p>
-              `;
-              }
+
+              //En caso de usar los iconos de la API hay que recuperar este código y ponerlo en el innerHTML
+              // ${datosHoraYLluvia[i].iconos}
 
               listaOchoHoras.appendChild(meteo);
             }
