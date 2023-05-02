@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App clima</title>
-   
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hack a Meteo | App clima</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
     <header>
-        <h1>Predicción de lluvia</h1>
-      </header>
-      <main>
+          <h1>Hack a Meteo</h1>
+          <p id="subtitulo">Utiliza tu ubicación para obtener la previsión meteorológica de las proximas 8 horas.</p>
+    </header>
+
+    <main>
+      <section id="info1">
         <button id="localizacion">Obtener ubicación</button>
-        <div id="resultado"></div>
-        <div id="contenido" class="contenido">
-            
+        <div id="resultado">
         </div>
-      </main>
-      <script src="/proyecto.js"></script>
-</body>
+      </section>
+
+      <section>
+        <ul id="lista">
+        </ul>
+      </section>
+    
+    </main>
+
+    <footer>
+      © 2023 Hack a Meteo, Inc.      
+    </footer>
+
+    <script src="/proyecto.js"></script>
+  </body>
 </html>
