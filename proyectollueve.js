@@ -126,3 +126,6 @@ button.addEventListener('click', () => {
       }
     );
   } else {
+    resultado.textContent = 'El navegador no soporta geolocalización';
+  }
+});
