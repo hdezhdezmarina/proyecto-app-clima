@@ -38,8 +38,6 @@ button.addEventListener('click', () => {
                 precipitacion: datos.weather.description,
                 horasLluvia: datos.timestamp_local,
                 temperatura: datos.temp,
-                // iconos: `https://cdn.weatherbit.io/static/img/icons/${datos.weather.icon}.png`,
-                //<img src="${datosHoraYLluvia[i].icono}" alt="">
               };
             });
 
@@ -97,18 +95,15 @@ button.addEventListener('click', () => {
                 icono = '/iconosMeteo/weather.svg';
               }
 
-              // Imprimimos la lista en HTML
+              //Imprimimos la lista en HTML
               const meteo = document.createElement('li');
 
               meteo.innerHTML = `
-                  <p>${hora} ${tiempo}.</p>
+                  <h2>${hora} ${tiempo}</h2>
                   <img src="${icono}" alt="${tiempo}">
                 
-                  <p>${datosHoraYLluvia[i].temperatura}º</p>
+                  <p>Temperatura: ${datosHoraYLluvia[i].temperatura}º</p>
                 `;
-
-              //En caso de usar los iconos de la API hay que recuperar este código y ponerlo en el innerHTML
-              // ${datosHoraYLluvia[i].iconos}
 
               listaOchoHoras.appendChild(meteo);
             }
