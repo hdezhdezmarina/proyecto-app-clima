@@ -168,6 +168,7 @@ p {
 @media (max-width: 800px) {
   header {
     position: sticky;
+    height: 23%;
   }
 
   h1 {
@@ -215,6 +216,7 @@ p {
 @media (max-width: 400px) {
   header {
     margin-bottom: 2rem;
+    height: 20%;
   }
 
   h1 {
