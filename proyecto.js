@@ -99,7 +99,8 @@ button.addEventListener('click', () => {
               const meteo = document.createElement('li');
 
               meteo.innerHTML = `
-                  <h2>${hora} ${tiempo}</h2>
+                  <h2>${hora}</h2>
+                  <h3>${tiempo}</h3>
                   <img src="${icono}" alt="${tiempo}">
                 
                   <p>Temperatura: ${datosHoraYLluvia[i].temperatura}º</p>
