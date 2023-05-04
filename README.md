@@ -10,7 +10,7 @@ con una descripción, y un cuerpo principal que contiene la parte interactiva, i
 se debe pulsar para activar la previsión meteorológica.
 
 En cuanto al archivo de JavaScript, es aquí donde reside el mayor interés del proyecto.
-Comeenzamos seleccionando los elementos de HTML que vamos a utilizar o modificar, incluido el botón sobre
+Comenzamos seleccionando los elementos de HTML que vamos a utilizar o modificar, incluido el botón sobre
 el que crearemos un evento de click.
 A partir de ahí, cuando el usuario lo pulse, el botón desaparece y el navegador intenta acceder a la
 geolocalización. Si lo consigue nos devolvera la posición mediante latitud y longitud, si no es capaz nos
