@@ -7,19 +7,20 @@ obtener información meteorológica básica de las siguientes 8 horas, siempre e
 Hemos utilizado el lenguaje de marcado HTML5 para hacer la estructura básica de nuestro sitio web,
 el cual se compone de una sóla página con una distribución bastante sencilla. Consta de un encabezado
 con una descripción, y un cuerpo principal que contiene la parte interactiva, incluido un botón que debe
-se debe pulsar para activar el funcionamiento de la página.
+se debe pulsar para activar la previsión meteorológica.
 
 En cuanto al archivo de JavaScript, es aquí donde reside el mayor interés del proyecto.
-Comnenzamos seleccionando los elementos de HTML que vamos a utilizar o modificar, incluido el botón sobre
+Comeenzamos seleccionando los elementos de HTML que vamos a utilizar o modificar, incluido el botón sobre
 el que crearemos un evento de click.
 A partir de ahí, cuando el usuario lo pulse, el botón desaparece y el navegador intenta acceder a la
 geolocalización. Si lo consigue nos devolvera la posición mediante latitud y longitud, si no es capaz nos
-informará mediante un mensaje en pantalla. Una vez obtenidos estos datos, se utilizan para solicitar
-información a una API, cuando la misma nos devuelve la información solicitada se asocia a una imagen
-que la represente y se imprime en el HTML. En caso de error en este último paso se nos informará también
-mediante un mensaje en pantalla.
+informará mediante un mensaje en pantalla.
+Una vez obtenidos estos datos, se utilizan para solicitar
+información a una API, cuando la misma nos devuelve los datos, estos se asocian a una imagen y se
+imprimen en el HTML. En caso de error en este último paso se nos informará también mediante un
+mensaje en pantalla.
 
-Por últmo, en el archivo CSS le hemos dado un estilo sencillo priorizando la claridad de los datos
+Por último, en el archivo CSS le hemos dado un estilo sencillo priorizando la claridad de los datos
 obtenidos a través de la API, y sobre todo el diseño responsive. Somos conscientes de que cometemos
 ciertos errores tratando de conseguir estos objetivos, en primer lugar podríamos mejorar el
 maquetado de la página (padding, margin...) pero sobre todo destaca el hecho de haber comenzado el
